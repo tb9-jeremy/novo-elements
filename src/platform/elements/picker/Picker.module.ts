@@ -10,7 +10,6 @@ import { NovoLoadingModule } from '../loading/Loading.module';
 import { NovoSwitchModule } from '../switch/Switch.module';
 import { NovoPickerElement } from './Picker';
 import { PickerResults } from './extras/picker-results/PickerResults';
-import { NovoPickerContainer } from './extras/picker-container/PickerContainer';
 import { EntityPickerResult, EntityPickerResults } from './extras/entity-picker-results/EntityPickerResults';
 import { ChecklistPickerResults } from './extras/checklist-picker-results/ChecklistPickerResults';
 import { GroupedMultiPickerResults } from './extras/grouped-multi-picker-results/GroupedMultiPickerResults';
@@ -21,7 +20,6 @@ import { DistributionListPickerResults } from './extras/distributionlist-picker-
     imports: [CommonModule, FormsModule, NovoLoadingModule, NovoListModule, OverlayModule, NovoOverlayModule, NovoSwitchModule],
     declarations: [
         NovoPickerElement,
-        NovoPickerContainer,
         PickerResults,
         EntityPickerResult,
         EntityPickerResults,
@@ -32,7 +30,6 @@ import { DistributionListPickerResults } from './extras/distributionlist-picker-
     ],
     exports: [
         NovoPickerElement,
-        NovoPickerContainer,
         PickerResults,
         EntityPickerResult,
         EntityPickerResults,
