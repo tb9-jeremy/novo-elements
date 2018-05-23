@@ -197,6 +197,7 @@ export class Helpers {
     };
   }
 
+  // TODO: Remove
   static calcPositionOffset(position: ClientRect, element: Element, side: string): { top: string; left: string; width: string } {
     if (!position) {
       return;
@@ -249,14 +250,14 @@ export class Helpers {
   }
 
   static findAncestor(element: Element, selector: string): Element {
-    while ((element = element.parentElement) && !element.matches.call(element, selector)); // tslint:disable-line
+    while ((element = element.parentElement) && !element.matches.call(element, selector)) ; // tslint:disable-line
     return element;
   }
 
   static deepClone(item: any): any {
     if (Array.isArray(item)) {
       let newArr = [];
-      for (let i = item.length; i-- > 0; ) {
+      for (let i = item.length; i-- > 0;) {
         // tslint:disable-line
         newArr[i] = Helpers.deepClone(item[i]);
       }
@@ -351,6 +352,7 @@ export class Helpers {
 
 export class Can {
   obj: Object;
+
   constructor(obj: Object) {
     this.obj = obj;
   }
@@ -371,6 +373,7 @@ export class Can {
     return thing !== void 0;
   }
 }
+
 /**
  * @param {any} obj
  * @returns
