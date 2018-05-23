@@ -226,7 +226,7 @@ export class DropdownDemoComponent {
     'cras',
   ];
 
-    public clickMe(data: string): void {
-        console.log('CLICKED!', data); // tslint:disable-line
-    }
+  public clickMe(data: string): void {
+    console.log('CLICKED!', data); // tslint:disable-line
+  }
 }
