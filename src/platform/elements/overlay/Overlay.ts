@@ -79,7 +79,7 @@ export class NovoOverlayTemplateComponent implements OnDestroy {
   @Output() public select: EventEmitter<any> = new EventEmitter();
   @Output() public closing: EventEmitter<any> = new EventEmitter();
 
-  public _overlayRef: OverlayRef | null;
+  public overlayRef: OverlayRef | null;
   public _portal: any; // TODO - type me!
   public _panelOpen: boolean = false;
 
@@ -122,25 +122,25 @@ export class NovoOverlayTemplateComponent implements OnDestroy {
 
   /** Opens the autocomplete suggestion panel. */
   public openPanel(): void {
-    if (!this._overlayRef) {
+    if (!this.overlayRef) {
       this._createOverlay(this.template);
     } else {
       this._checkSizes();
     }
-    if (this._overlayRef && !this._overlayRef.hasAttached()) {
-      this._overlayRef.attach(this._portal);
+    if (this.overlayRef && !this.overlayRef.hasAttached()) {
+      this.overlayRef.attach(this._portal);
       this._closingActionsSubscription = this._subscribeToClosingActions();
     }
     this._panelOpen = true;
     this._changeDetectorRef.markForCheck();
-    setTimeout(() => this._overlayRef.updatePosition());
+    setTimeout(() => this.overlayRef.updatePosition());
   }
 
   /** Closes the autocomplete suggestion panel. */
   public closePanel(): void {
     this._zone.run(() => {
-      if (this._overlayRef && this._overlayRef.hasAttached()) {
-        this._overlayRef.detach();
+      if (this.overlayRef && this.overlayRef.hasAttached()) {
+        this.overlayRef.detach();
         this._closingActionsSubscription.unsubscribe();
       }
       this.closing.emit(true);
@@ -179,8 +179,8 @@ export class NovoOverlayTemplateComponent implements OnDestroy {
           this._panelOpen &&
           clickTarget !== this._getConnectedElement().nativeElement &&
           !this._getConnectedElement().nativeElement.contains(clickTarget) &&
-          (!!this._overlayRef && !this._overlayRef.overlayElement.contains(clickTarget));
-        if (this._panelOpen && !!this._overlayRef && this._overlayRef.overlayElement.contains(clickTarget) && this.closeOnSelect) {
+          (!!this.overlayRef && !this.overlayRef.overlayElement.contains(clickTarget));
+        if (this._panelOpen && !!this.overlayRef && this.overlayRef.overlayElement.contains(clickTarget) && this.closeOnSelect) {
           this.select.emit(event);
         }
         return clicked;
@@ -214,16 +214,16 @@ export class NovoOverlayTemplateComponent implements OnDestroy {
 
   /** Destroys the autocomplete suggestion panel. */
   protected _destroyPanel(): void {
-    if (this._overlayRef) {
+    if (this.overlayRef) {
       this.closePanel();
-      this._overlayRef.dispose();
-      this._overlayRef = undefined;
+      this.overlayRef.dispose();
+      this.overlayRef = undefined;
     }
   }
 
   protected _createOverlay(template: TemplateRef<any>): void {
     this._portal = new TemplatePortal(template, this._viewContainerRef);
-    this._overlayRef = this._overlay.create(this._getOverlayConfig());
+    this.overlayRef = this._overlay.create(this._getOverlayConfig());
   }
 
   protected _getOverlayConfig(): OverlayConfig {
@@ -266,12 +266,12 @@ export class NovoOverlayTemplateComponent implements OnDestroy {
   }
 
   protected _checkSizes(): void {
-    if (this._overlayRef) {
+    if (this.overlayRef) {
       if (this.size === 'inherit') {
-        this._overlayRef.getConfig().width = this._getHostWidth();
+        this.overlayRef.getConfig().width = this._getHostWidth();
       }
-      this._overlayRef.updateSize(this._overlayRef.getConfig());
-      this._overlayRef.updatePosition();
+      this.overlayRef.updateSize(this.overlayRef.getConfig());
+      this.overlayRef.updatePosition();
       this._changeDetectorRef.markForCheck();
     }
   }
