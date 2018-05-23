@@ -165,10 +165,10 @@ export class Helpers {
           field = field.getTime();
         }
         if (value.min) {
-          results.push(field > value.min);
+          results.push(field >= value.min);
         }
         if (value.max) {
-          results.push(field < value.max);
+          results.push(field <= value.max);
         }
         if (value.any && Array.isArray(value.any)) {
           if (Array.isArray(field)) {
@@ -192,7 +192,6 @@ export class Helpers {
       } else {
         results.push(JSON.stringify(field).match(new RegExp(value, 'gi')));
       }
-
       return results.every((x) => x);
     };
   }
