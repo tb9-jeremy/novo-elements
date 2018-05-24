@@ -152,7 +152,7 @@ export class NovoPickerElement implements OnInit {
     this.show((event.target as any).value);
   }
 
-  /** BEGIN: Convienient Panel Methods. */
+  /** BEGIN: Convenient Panel Methods. */
   public openPanel(): void {
     this.container.openPanel();
   }
@@ -165,7 +165,7 @@ export class NovoPickerElement implements OnInit {
     return this.container && this.container.panelOpen;
   }
 
-  /** END: Convienient Panel Methods. */
+  /** END: Convenient Panel Methods. */
 
   private show(term?: string): void {
     this.openPanel();

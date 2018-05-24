@@ -62,7 +62,7 @@ export class NovoTimePickerInputElement implements OnInit, ControlValueAccessor 
     };
   }
 
-  /** BEGIN: Convienient Panel Methods. */
+  /** BEGIN: Convenient Panel Methods. */
   openPanel(): void {
     if (!this.overlay.panelOpen) {
       this.overlay.openPanel();
@@ -79,7 +79,7 @@ export class NovoTimePickerInputElement implements OnInit, ControlValueAccessor 
     return this.overlay && this.overlay.panelOpen;
   }
 
-  /** END: Convienient Panel Methods. */
+  /** END: Convenient Panel Methods. */
 
   _handleKeydown(event: KeyboardEvent): void {
     if ((event.keyCode === ESCAPE || event.keyCode === ENTER || event.keyCode === TAB) && this.panelOpen) {

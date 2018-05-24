@@ -122,7 +122,7 @@ export class NovoSelectElement implements OnInit, OnChanges {
     }
   }
 
-  /** BEGIN: Convienient Panel Methods. */
+  /** BEGIN: Convenient Panel Methods. */
   openPanel(): void {
     this.overlay.openPanel();
   }
@@ -135,7 +135,7 @@ export class NovoSelectElement implements OnInit, OnChanges {
     return this.overlay && this.overlay.panelOpen;
   }
 
-  /** END: Convienient Panel Methods. */
+  /** END: Convenient Panel Methods. */
 
   /**
    * This method closes the panel, and if a value is specified, also sets the associated
