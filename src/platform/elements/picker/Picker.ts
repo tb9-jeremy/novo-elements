@@ -1,15 +1,6 @@
 // NG2
 import {
-  ChangeDetectorRef,
-  Component,
-  ElementRef,
-  EventEmitter,
-  forwardRef,
-  Input,
-  OnInit,
-  Output,
-  ViewChild,
-  ViewContainerRef,
+  ChangeDetectorRef, Component, ElementRef, EventEmitter, forwardRef, Input, OnInit, Output, ViewChild, ViewContainerRef,
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 // Vendor
@@ -24,6 +15,7 @@ import { PickerResults } from './extras/picker-results/PickerResults';
 import { ComponentUtils } from '../../utils/component-utils/ComponentUtils';
 import { Helpers } from '../../utils/Helpers';
 import { NovoOverlayTemplateComponent } from '../overlay/Overlay';
+import { notify } from '../../utils/notifier/notifier.util';
 
 // Value accessor for the component (supports ngModel)
 const PICKER_VALUE_ACCESSOR = {
@@ -129,7 +121,7 @@ export class NovoPickerElement implements OnInit {
       this.element = this.overrideElement;
     }
     if (this.appendToBody) {
-      console.warn(`'appendToBody' has been deprecated. Please remove this attribute.`);
+      notify(`'appendToBody' has been deprecated. Please remove this attribute.`);
     }
     // Custom results template
     this.resultsComponent = this.config.resultsTemplate || PickerResults;

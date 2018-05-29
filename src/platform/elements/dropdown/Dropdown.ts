@@ -1,23 +1,13 @@
 // NG2
 import {
-  AfterContentInit,
-  ChangeDetectorRef,
-  Component,
-  ContentChildren,
-  ElementRef,
-  EventEmitter,
-  HostListener,
-  Input,
-  OnDestroy,
-  OnInit,
-  Output,
-  QueryList,
-  ViewChild,
+  AfterContentInit, ChangeDetectorRef, Component, ContentChildren, ElementRef, EventEmitter, HostListener, Input, OnDestroy, OnInit, Output,
+  QueryList, ViewChild,
 } from '@angular/core';
 // APP
 import { NovoOverlayTemplateComponent } from '../overlay/Overlay';
 import { KeyCodes } from '../../utils/key-codes/KeyCodes';
 import { Helpers } from '../../utils/Helpers';
+import { notify } from '../../utils/notifier/notifier.util';
 
 @Component({
   selector: 'novo-dropdown',
@@ -38,7 +28,7 @@ export class NovoDropdownElement implements OnInit, OnDestroy {
   @Input() scrollStrategy: 'reposition' | 'block' | 'close' = 'reposition';
   @Input() height: number;
   @Input() width: number = 180;
-  @Input() appendToBody: boolean = false; // TODO - deprecated - remove
+  @Input() appendToBody: boolean = false; // Deprecated
 
   @Output() toggled: EventEmitter<boolean> = new EventEmitter<boolean>();
 
@@ -60,6 +50,9 @@ export class NovoDropdownElement implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
+    if (this.appendToBody) {
+      notify(`'appendToBody' has been deprecated. Please remove this attribute.`);
+    }
     // Add a click handler to the button to toggle the menu
     let button = this.element.nativeElement.querySelector('button');
     button.addEventListener('click', this.clickHandler);
