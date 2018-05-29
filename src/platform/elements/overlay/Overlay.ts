@@ -87,7 +87,11 @@ export class NovoOverlayTemplateComponent implements OnDestroy {
       this.overlayRef.attach(this.portal);
     }
     this.changeDetectorRef.markForCheck();
-    setTimeout(() => this.overlayRef.updatePosition());
+    setTimeout(() => {
+      if (this.overlayRef) {
+        this.overlayRef.updatePosition();
+      }
+    });
   }
 
   public closePanel(): void {
