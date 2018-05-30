@@ -1,25 +1,9 @@
 import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ElementRef,
-  EventEmitter,
-  Input,
-  NgZone,
-  OnDestroy,
-  Output,
-  TemplateRef,
-  ViewChild,
+  ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, NgZone, OnDestroy, Output, TemplateRef, ViewChild,
   ViewContainerRef
 } from '@angular/core';
 import {
-  ConnectedPositionStrategy,
-  HorizontalConnectionPos,
-  Overlay,
-  OverlayConfig,
-  OverlayRef,
-  ScrollStrategy,
-  VerticalConnectionPos,
+  ConnectedPositionStrategy, HorizontalConnectionPos, Overlay, OverlayConfig, OverlayRef, ScrollStrategy, VerticalConnectionPos,
 } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
 
