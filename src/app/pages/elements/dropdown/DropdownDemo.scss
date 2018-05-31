@@ -16,3 +16,20 @@ dropdown-demo {
 .custom-class {
   background: red;
 }
+
+.scrollable-container-demo {
+  display: block !important;
+
+  .scrollable-container {
+    max-height: 20rem;
+    overflow: scroll;
+
+    .scrollable-content {
+      height: 20em;
+
+      novo-dropdown {
+        margin-top: 10rem;
+      }
+    }
+  }
+}

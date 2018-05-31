@@ -5,45 +5,52 @@ let DropdownDemoTpl = require('./templates/DropdownDemo.html');
 let CustomClassTpl = require('./templates/CustomClassDemo.html');
 let KeepOpenTpl = require('./templates/KeepOpenDemo.html');
 let CrazyLargeTpl = require('./templates/CrazyLargeDemo.html');
-
-const template = `
-<div class="container">
-    <h1>Dropdown <small><a target="_blank" href="https://github.com/bullhorn/novo-elements/blob/master/src/elements/dropdown">(source)</a></small></h1>
-    <p>Dropdown allow users to take an action by selecting from a list of choices revealed upon opening a temporary menu.</p>
-
-    <h2>Types</h2>
-
-    <h5>Dropdown Menu</h5>
-    <p>This is a simple dropdown menu.</p>
-    <div class="example dropdown-demo">${DropdownDemoTpl}</div>
-    <code-snippet [code]="DropdownDemoTpl"></code-snippet>
-
-    <h5>Custom Class</h5>
-    <p>You can have custom classes on the dropdown container that opens up by using the "containerClass" property.</p>
-    <div class="example dropdown-demo">${CustomClassTpl}</div>
-    <code-snippet [code]="CustomClassTpl"></code-snippet>
-
-    <h5>Keep Open</h5>
-    <p>You can set the "keepOpen" property on the "item" in order to keep it from closing the dropdown automatically.</p>
-    <div class="example dropdown-demo">${KeepOpenTpl}</div>
-    <code-snippet [code]="KeepOpenTpl"></code-snippet>
-
-    <h5>Lots of data!</h5>
-    <p>Craxy large dropdown to demonstrate how the smart positioning works.</p>
-    <div class="example dropdown-demo">${CrazyLargeTpl}</div>
-    <code-snippet [code]="CrazyLargeTpl"></code-snippet>
-</div>
-`;
+let ScrollableContainerTpl = require('./templates/ScrollableContainerDemo.html');
 
 @Component({
   selector: 'dropdown-demo',
-  template: template,
+  template: `
+    <div class="container">
+      <h1>Dropdown
+        <small><a target="_blank" href="https://github.com/bullhorn/novo-elements/blob/master/src/elements/dropdown">(source)</a></small>
+      </h1>
+      <p>Dropdown allow users to take an action by selecting from a list of choices revealed upon opening a temporary menu.</p>
+
+      <h2>Types</h2>
+
+      <h5>Dropdown Menu</h5>
+      <p>This is a simple dropdown menu.</p>
+      <div class="example dropdown-demo">${DropdownDemoTpl}</div>
+      <code-snippet [code]="DropdownDemoTpl"></code-snippet>
+
+      <h5>Custom Class</h5>
+      <p>You can have custom classes on the dropdown container that opens up by using the "containerClass" property. Use scrollStrategy to close, block or reposition the dropdown when the parent scrolls. The default scrollStrategy is reposition.</p>
+      <div class="example dropdown-demo">${CustomClassTpl}</div>
+      <code-snippet [code]="CustomClassTpl"></code-snippet>
+
+      <h5>Keep Open</h5>
+      <p>You can set the "keepOpen" property on the "item" in order to keep it from closing the dropdown automatically.</p>
+      <div class="example dropdown-demo">${KeepOpenTpl}</div>
+      <code-snippet [code]="KeepOpenTpl"></code-snippet>
+
+      <h5>Lots of data!</h5>
+      <p>Crazy large dropdown to demonstrate how the smart positioning works.</p>
+      <div class="example dropdown-demo">${CrazyLargeTpl}</div>
+      <code-snippet [code]="CrazyLargeTpl"></code-snippet>
+
+      <h5>Scrollable Container Class</h5>
+      <p>This is an example of using a dropdown within a scrollable container. Simply place the directive cdkScrollable on the ancestor element that does the scrolling.</p>
+      <div class="example dropdown-demo scrollable-container-demo">${ScrollableContainerTpl}</div>
+      <code-snippet [code]="ScrollableContainerTpl"></code-snippet>
+    </div>
+  `,
 })
 export class DropdownDemoComponent {
   public DropdownDemoTpl: string = DropdownDemoTpl;
   public KeepOpenTpl: string = KeepOpenTpl;
   public CustomClassTpl: string = CustomClassTpl;
   public CrazyLargeTpl: string = CrazyLargeTpl;
+  public ScrollableContainerTpl: string = ScrollableContainerTpl;
 
   public MOCK_WORDS: string[] = [
     'lorem',

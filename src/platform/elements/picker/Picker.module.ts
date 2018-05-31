@@ -2,7 +2,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { OverlayModule } from '@angular/cdk/overlay';
 // APP
 import { NovoOverlayModule } from '../overlay/Overlay.module';
 import { NovoListModule } from '../list/List.module';
@@ -17,7 +16,7 @@ import { SkillsSpecialtyPickerResults } from './extras/skills-picker-results/Ski
 import { DistributionListPickerResults } from './extras/distributionlist-picker-results/DistributionListPickerResults';
 
 @NgModule({
-    imports: [CommonModule, FormsModule, NovoLoadingModule, NovoListModule, OverlayModule, NovoOverlayModule, NovoSwitchModule],
+    imports: [CommonModule, FormsModule, NovoLoadingModule, NovoListModule, NovoOverlayModule, NovoSwitchModule],
     declarations: [
         NovoPickerElement,
         PickerResults,
